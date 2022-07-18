@@ -1,0 +1,40 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="records">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string" />
+              <xs:element name="surname" type="xs:string" />
+              <xs:element name="gender" type="gender" />
+              <xs:element name="email" type="xs:string" />
+              <xs:element name="phone_number" type="xs:string" />
+              <xs:element name="address" type="xs:string" />
+              <xs:element name="level_of_education" type="level_of_education" />
+              <xs:element name="currency_unit" type="currency_unit" />
+              <xs:element name="height" type="xs:decimal" />
+              <xs:element name="weight" type="xs:unsignedByte" />
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+<xs:simpleType name="gender">
+ <xs:restriction base="xs:string">
+   <xs:pattern value="F|M"/>
+  </xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="currency_unit">
+ <xs:restriction base="xs:string">
+   <xs:pattern value="$|€|₺"/>
+  </xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="level_of_education">
+ <xs:restriction base="xs:string">
+   <xs:pattern value="PhD|MSc|BSc|HS|PS"/>
+  </xs:restriction>
+</xs:simpleType>
+</xs:schema>
